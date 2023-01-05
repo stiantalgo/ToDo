@@ -115,8 +115,8 @@ function ContentPage() {
   }
 
   function addToTodo() {
-    todoList.push(todoInput.value);
-    setLocalStorage('todoList', todoList);
+      todoList.push(todoInput.value);
+      setLocalStorage('todoList', todoList);
   }
 
   function shake(){

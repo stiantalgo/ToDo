@@ -9,7 +9,7 @@
     --headColor: rgb(56, 50, 50);
     --headColorHover: rgb(46, 41, 41);
     --sideColor: rgb(201, 192, 192);
-    --sideColorHover: rgb(184, 173, 173);
+    --sideColorHover: rgb(137, 158, 189);
     --contentColor: rgb(141, 116, 116);
     --contentColorHover: rgb(95, 77, 77);
     /*Text*/
@@ -17,8 +17,10 @@
     --textColorLight: rgb(238, 232, 232);
 
     /*Fonts*/
-    --titleFont: "Ink Free", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --sideFontSize: 24px;
+    /* --titleFont: "Ink Free", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* --titleFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    --titleFont: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --sideFontSize: 22px;
 
     /*Buttons*/
     --addBtnColor: rgba(1, 230, 1, 0.452);
@@ -52,41 +54,33 @@
 .sidebar{    
     grid-area: sidebar;
     background-color: var(--sideColor);  
-    padding: 20px;
-    border-top-right-radius: 50px;  
-    border-bottom-left-radius: 50px;
-    /* display: flex;
-    flex-direction: column;   */
+    padding-top: 40px;
     display: block;
 }
 
-.sidebar button{
+.sidebar button{    
+    text-align: left;
     background: none;
     padding: 10px;
     border: none;    
-    width: 200px;
+    width: 100%;
     background: none;
     font-weight: 700;
     font-family: var(--titleFont);
     font-size: var(--sideFontSize);
+    padding-left: 30px;
 }
 
 
 .sidebar button:hover{
     background-color: var(--sideColorHover);
-    border-radius: 10px;
 }
 
-.content{
-    margin-right: 100px;    
+.content{  
     text-align: center;
     padding: 50px;
     grid-area: content;
     background-color: var(--contentColor);
-    border-top-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 50px;
-
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -179,14 +173,9 @@ input:focus{
 }
 
 @keyframes taskAdded{
-    /* 0%{top: -110px;}
-    20%{top: 30px;}
-    80%{top: 30px;}
-    100%{top: -110px;} */
-
     0%{left: 0px;}
-    20%{left: 250px;}
-    80%{left: 250px;}
+    20%{left: 320px;}
+    80%{left: 320px;}
     100%{left: 0px;}
 }
 
@@ -244,17 +233,17 @@ input:focus{
     margin: 40px;
     position: relative;
     background-color: var(--sideColor);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px 10px 10px 10px;
     box-shadow: 1px 1px 5px;
     width: 200px;
     transition: all .3s;
 }
 
-.taskBox:hover{
+/* .taskBox:hover{
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 20px;
-}
+} */
 
 .taskGiven{
     font-family: var(--titleFont);
@@ -268,7 +257,7 @@ input:focus{
     font-weight: 700;
     font-family: var(--titleFont), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
-    width: 60px;
+    width: 70px;
     transition: transform 0.2s;
 }
 
