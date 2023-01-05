@@ -316,7 +316,7 @@ input:focus{
 }
 
 .completedTask button{
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     max-width: 80px;
     min-width: 80px;
