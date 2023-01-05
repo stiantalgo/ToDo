@@ -21,6 +21,12 @@ todoPage.addEventListener('click', toDoPage);
 completedPage.addEventListener('click', completedTasks);
 
 
+function loadPage(){
+  completedTaskList = loadCompletedList();
+   todoList = loadToDoList();
+}
+
+
 function setLocalStorage(listname, list){
   let todoList_serialized = JSON.stringify(list);
   localStorage.setItem(`${listname}`, todoList_serialized);
@@ -51,6 +57,7 @@ function loadCompletedList(){
 
 function ContentPage() {
   clearDivs();
+  loadPage();
 
   let taskBtn = document.createElement("button");
   taskBtn.textContent = "+ Add Task";
@@ -122,7 +129,6 @@ function ContentPage() {
   }
 
   function addIt(){
-    // todoInput.classList.add('addIt');
     added.classList.add('addIt');
     setTimeout(removeaddIt, 800);
   }
@@ -136,7 +142,7 @@ function ContentPage() {
 
 function toDoPage(){
   clearDivs();
-
+  loadPage();
   if(todoList.length === 0){
     return;
   }
@@ -186,9 +192,9 @@ function toDoPage(){
 
     okBtn.addEventListener('click', () => {
       completedTaskList.push(taskTitle.textContent);
+      removeItem();
       setLocalStorage('completedTaskList', completedTaskList);
       setLocalStorage('todoList', todoList);
-      removeItem();
     })
 
     function removeItem(){
@@ -201,6 +207,7 @@ function toDoPage(){
 
 function completedTasks(){
   clearDivs();
+  loadPage();
 
   if(completedTaskList.length === 0){
     alert("No completed tasks!");
@@ -243,12 +250,15 @@ function completedTasks(){
     removeBtn.addEventListener('click', () => {
       compTask.remove();
       completedTaskList.splice(i, 1);
+      setLocalStorage('completedTaskList', completedTaskList);
     })
 
     reAddBtn.addEventListener('click', () => {
       todoList.push(completedTaskList[i]);
       compTask.remove();
       completedTaskList.splice(i, 1);
+      setLocalStorage('completedTaskList', completedTaskList);
+      setLocalStorage('todoList', todoList);
     })
   }
 }
