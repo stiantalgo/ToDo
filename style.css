@@ -44,11 +44,20 @@
 
 .header{
     grid-area: header;
-    padding: 20px 0 0 40px;
+    padding: 30px 0 0 30px;
     background-color: var(--headColor);
     color: var(--textColorLight);
     font-family: var(--titleFont);
-    font-size: 40px;
+    font-size: 24px;
+    
+}
+
+.header h1{
+    transition: all .5s;
+}
+
+.header h1:hover{
+    color: var(--headColor);
 }
 
 .sidebar{    
