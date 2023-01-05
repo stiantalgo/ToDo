@@ -1,0 +1,347 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    /*Backgrounds*/
+    --headColor: rgb(56, 50, 50);
+    --headColorHover: rgb(46, 41, 41);
+    --sideColor: rgb(201, 192, 192);
+    --sideColorHover: rgb(184, 173, 173);
+    --contentColor: rgb(141, 116, 116);
+    --contentColorHover: rgb(95, 77, 77);
+    /*Text*/
+    --textColorDark: black;
+    --textColorLight: rgb(238, 232, 232);
+
+    /*Fonts*/
+    --titleFont: "Ink Free", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --sideFontSize: 24px;
+
+    /*Buttons*/
+    --addBtnColor: rgba(1, 230, 1, 0.452);
+    --addBtnColorHover: rgba(8, 146, 8, 0.596);
+    --removeBtnColor: rgba(230, 30, 30, 0.774);
+    --removeBtnColorHover: rgba(150, 27, 27, 0.849);
+
+    
+    background-color: var(--headColor);    
+}
+
+.container {    
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 150px 1fr;
+    grid-template-areas: "header header"
+                        "sidebar content";
+}
+
+.header{
+    grid-area: header;
+    padding: 20px 0 0 40px;
+    background-color: var(--headColor);
+    color: var(--textColorLight);
+    font-family: var(--titleFont);
+    font-size: 40px;
+}
+
+.sidebar{    
+    grid-area: sidebar;
+    background-color: var(--sideColor);  
+    padding: 20px;
+    border-top-right-radius: 50px;  
+    border-bottom-left-radius: 50px;
+    /* display: flex;
+    flex-direction: column;   */
+    display: block;
+}
+
+.sidebar button{
+    background: none;
+    padding: 10px;
+    border: none;    
+    width: 200px;
+    background: none;
+    font-weight: 700;
+    font-family: var(--titleFont);
+    font-size: var(--sideFontSize);
+}
+
+
+.sidebar button:hover{
+    background-color: var(--sideColorHover);
+    border-radius: 10px;
+}
+
+.content{
+    margin-right: 100px;    
+    text-align: center;
+    padding: 50px;
+    grid-area: content;
+    background-color: var(--contentColor);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.taskBtn{
+    border: none;
+    margin: 20px;
+    background: none;
+    font-weight: 700;
+    font-family: var(--titleFont), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--sideFontSize);
+}
+.taskBtn:hover{
+    text-decoration: underline;
+}
+
+
+.fillTask{
+    position: relative;
+    top: -500px;
+    margin: 0 auto;
+    max-width: 500px;
+    min-width: 250px;
+    display: block;
+    transition: top 0.3s;
+}
+
+.showFill{
+    top: 0px;
+}
+
+.fillTask * {
+    position: relative;
+    margin-top: 15px;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.fillTask input{
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-family: var(--titleFont), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--sideFontSize);
+}
+
+input:focus{
+    outline: none;
+}
+
+.fillTask button{
+    font-weight: 700;
+    font-family: var(--titleFont), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--sideFontSize);
+    width: 49%;
+    transition: transform 0.2s;
+}
+
+.addBtn{
+    background-color: var(--addBtnColor);
+    float: left;
+}
+
+.shakeIt{
+    animation: shake 0.2s;
+}
+
+.addIt{
+    /* animation: addedAnim 1.5s; */
+    animation: taskAdded .8s;
+}
+
+.added{
+    position: relative;
+    z-index: 1;
+    top: -110px;
+}
+
+@keyframes addedAnim{
+    0%{transform: translateX(1px); }
+    50%{ transform: translateX(600px); }
+    100%{ transform: translateX(1px); }
+}
+
+@keyframes taskAdded{
+    /* 0%{top: -110px;}
+    20%{top: 30px;}
+    80%{top: 30px;}
+    100%{top: -110px;} */
+
+    0%{left: 0px;}
+    20%{left: 250px;}
+    80%{left: 250px;}
+    100%{left: 0px;}
+}
+
+@keyframes shake {
+    0% {transform: translate(1px, 1px) rotate(0deg);}
+    10% {transform: translate(-1px, -2px) rotate(-1deg);}
+    20% {transform: translate(-3px, 0px) rotate(1deg);}
+    30% {transform: translate(3px, 2px) rotate(0deg);}
+    40% {transform: translate(1px, -1px) rotate(1deg);}
+    50% {transform: translate(-1px, 2px) rotate(-1deg);}
+    60% {transform: translate(-3px, 1px) rotate(0deg);}
+    70% {transform: translate(3px, 1px) rotate(-1deg);}
+    80% {transform: translate(-1px, -1px) rotate(1deg);}
+    90% {transform: translate(1px, 2px) rotate(0deg);}
+    100% {transform: translate(1px, -2px) rotate(-1deg);}
+  }
+
+@keyframes shakeshake{
+    0%{transform: translateY(1px); }
+    25%{ transform: translateY(5px); }
+    50%{ transform: translateY(1px); }
+    75%{ transform: translateY(-5px); }
+    100%{ transform: translateY(1px); }
+}
+
+.cancelBtn{
+    background-color: var(--removeBtnColor);
+    float: right;
+}
+
+.addBtn:hover{
+    background-color: var(--addBtnColorHover);  
+    transform: scale(0.95);   
+}
+
+.cancelBtn:hover{
+    background-color: var(--removeBtnColorHover);
+    transform: scale(0.95);    
+}
+
+
+/* Todo page */
+
+.title h1{
+    font-family: var(--titleFont);
+}
+
+.taskDiv{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.taskBox{
+    margin: 40px;
+    position: relative;
+    background-color: var(--sideColor);
+    border-radius: 20px;
+    padding: 20px 10px 10px 10px;
+    box-shadow: 1px 1px 5px;
+    width: 200px;
+    transition: all .3s;
+}
+
+.taskBox:hover{
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 20px;
+}
+
+.taskGiven{
+    font-family: var(--titleFont);
+}
+
+.taskBox button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 20px 10px;
+    font-weight: 700;
+    font-family: var(--titleFont), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    width: 60px;
+    transition: transform 0.2s;
+}
+
+.okBtn{
+    background-color: var(--addBtnColor);
+}
+
+.okBtn:hover{
+    background-color: var(--addBtnColorHover);
+}
+
+.delBtn{
+    background-color: var(--removeBtnColor);
+}
+
+.delBtn:hover{
+    background-color: var(--removeBtnColorHover);
+}
+
+.completedDiv{
+    max-width: 1300px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: var(--sideColor);
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.completedTask{    
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 5px;
+    position: relative;
+    margin: 10px;
+    display: flex;
+    flex: 1;
+    border-bottom: 1px solid;
+}
+
+.completedTask h2{    
+    padding: 0 10px;
+    font-family: var(--titleFont);
+    text-decoration:line-through;
+}
+
+.completedTask button{
+    border-radius: 10px;
+    border: none;
+    max-width: 80px;
+    min-width: 80px;
+    height: 30px;
+    font-family: var(--titleFont);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.reAdd{
+    margin-left: auto;
+    margin-right: 10px;
+    background-color: var(--addBtnColor);
+}
+
+.reAdd:hover{
+    background-color: var(--addBtnColorHover);
+}
+
+.remove{
+    background-color: var(--removeBtnColor);
+}
+
+.remove:hover{
+    background-color: var(--removeBtnColorHover);
+}
+
